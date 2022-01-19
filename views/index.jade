@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  hr
+  p 
+    a(href="http://127.0.0.1/videos/640.mp4") default 640
+  p
+    a(href="http://127.0.0.1/range/1280.mp4") default 1280
+  hr
+  p 
+    a(href="http://127.0.0.1/range/nodejs/640.mp4") nodejs 640
+  p
+    a(href="http://127.0.0.1/range/nodejs/1280.mp4") nodejs 1280
+  hr
+  p 
+    a(href="http://127.0.0.1/range/nginx/640.mp4") nginx 640
+  p
+    a(href="http://127.0.0.1/range/nginx/1280.mp4") nginx 1280
+  hr

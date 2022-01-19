@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  express:
+    image: node:14.16.1
+    working_dir: /app
+    command: bash -c "yarn && /app/node_modules/.bin/nodemon /app/bin/www --watch ."
+    expose:
+      - 3000
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+    volumes:
+      - .:/app
+
+  nginx:
+    image: bitnami/nginx:1.21
+    environment:
+      NGINX_HTTP_PORT_NUMBER: 8080
+    ports:
+      - "80:8080"
+    links:
+      - express
+    volumes:
+      - ./nginx/express_server_block.conf:/opt/bitnami/nginx/conf/server_blocks/express_server_block.conf
